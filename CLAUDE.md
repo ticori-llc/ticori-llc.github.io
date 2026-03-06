@@ -18,6 +18,10 @@ TICORI LLC company website, hosted on GitHub Pages at www.ticori.gg. This is an 
 
 No build or test commands. Open HTML files directly in a browser to preview. Deploy by pushing to `main` — GitHub Pages serves automatically.
 
+## Git
+
+- Do not add `Co-Authored-By` lines to commits.
+
 ## Style Conventions
 
 - Brand color: `#58b08d` (green), hover accent: `#6dd5b4`
