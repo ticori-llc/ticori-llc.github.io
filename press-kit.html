@@ -5,118 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Press Kit - TICORI</title>
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #090b0a;
-            color: #c8cfc9;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #080f0b;
+            color: #9aaa9e;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: 100;
+        h1, h2, h3 {
+            color: #e0ece5;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Nav */
         nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            z-index: 50;
-            padding: 0 40px;
-            height: 64px;
+            z-index: 100;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: rgba(9, 11, 10, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(88, 176, 141, 0.08);
+            padding: 0 2rem;
+            height: 60px;
+            background: rgba(8, 15, 11, 0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(80, 200, 120, 0.08);
         }
 
         .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: #fff;
-        }
-
-        .nav-logo {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-            filter: invert(1);
-            opacity: 0.9;
-        }
-
-        .nav-name {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+            color: #e0ece5;
+            letter-spacing: 0.08em;
         }
 
         .nav-links {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
-            align-items: center;
-            gap: 28px;
+            gap: 2rem;
+            list-style: none;
         }
 
         .nav-links a {
-            color: rgba(255, 255, 255, 0.45);
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+            color: #708a7a;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #58b08d;
+            color: #e0ece5;
         }
 
         .nav-links a.active {
-            color: #58b08d;
+            color: #50c878;
         }
 
         .nav-social {
             display: flex;
-            gap: 16px;
+            gap: 1.25rem;
             align-items: center;
         }
 
         .nav-social a {
-            color: rgba(255, 255, 255, 0.3);
-            transition: color 0.3s;
+            color: #708a7a;
             display: flex;
+            align-items: center;
+            transition: color 0.2s;
         }
 
         .nav-social a:hover {
-            color: #58b08d;
+            color: #e0ece5;
         }
 
-        .nav-social svg {
-            width: 16px;
-            height: 16px;
-        }
-
+        /* Main content */
         main {
-            padding-top: 64px;
+            padding-top: 60px;
             max-width: 860px;
             margin: 0 auto;
-            padding-left: 20px;
-            padding-right: 20px;
+            padding-left: 2rem;
+            padding-right: 2rem;
         }
 
         .page-header {
@@ -126,13 +114,12 @@
         .page-header h1 {
             font-size: 2.8rem;
             font-weight: 800;
-            color: #fff;
             letter-spacing: -0.02em;
             margin-bottom: 10px;
         }
 
         .page-header p {
-            opacity: 0.35;
+            color: #708a7a;
             font-size: 1rem;
         }
 
@@ -145,10 +132,10 @@
             font-weight: 700;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: #58b08d;
+            color: #50c878;
             margin-bottom: 24px;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(88, 176, 141, 0.15);
+            border-bottom: 1px solid rgba(80, 200, 120, 0.15);
         }
 
         .fact-grid {
@@ -162,84 +149,27 @@
             font-weight: 600;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            opacity: 0.35;
+            color: #708a7a;
             margin-bottom: 6px;
         }
 
         .fact-value {
             font-size: 1rem;
-            color: #eef1ef;
+            color: #e0ece5;
         }
 
         .fact-value a {
-            color: #58b08d;
-            text-decoration: none;
-            transition: color 0.3s;
+            color: #50c878;
+            transition: color 0.2s;
         }
 
         .fact-value a:hover {
-            color: #6dd5b4;
-        }
-
-        .logo-showcase {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .logo-block {
-            text-align: center;
-        }
-
-        .logo-swatch {
-            width: 140px;
-            height: 140px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .logo-swatch img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-
-        .logo-swatch-dark {
-            background: #090b0a;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .logo-swatch-dark img {
-            filter: invert(1);
-        }
-
-        .logo-swatch-light {
-            background: #f0f0f0;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .logo-swatch-green {
-            background: #58b08d;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .logo-swatch-green img {
-            filter: invert(1);
-        }
-
-        .logo-label {
-            font-size: 0.7rem;
-            opacity: 0.3;
-            margin-top: 10px;
-            letter-spacing: 0.05em;
+            color: #6ee898;
         }
 
         .color-palette {
             display: flex;
-            gap: 16px;
+            gap: 24px;
             flex-wrap: wrap;
         }
 
@@ -253,7 +183,7 @@
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(80, 200, 120, 0.1);
         }
 
         .color-info {
@@ -262,49 +192,54 @@
 
         .color-name {
             font-weight: 600;
-            color: #eef1ef;
+            color: #e0ece5;
         }
 
         .color-hex {
             font-size: 0.75rem;
-            opacity: 0.4;
+            color: #708a7a;
             font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
         }
 
+        /* Footer */
         footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 30px 0;
+            border-top: 1px solid rgba(80, 200, 120, 0.08);
+            padding: 2rem 0;
             margin-top: 80px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: 0.8rem;
+            color: rgba(154, 170, 158, 0.4);
         }
 
-        .footer-copy {
-            font-size: 0.75rem;
-            opacity: 0.25;
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
         }
 
         .footer-links a {
-            color: rgba(255, 255, 255, 0.3);
-            text-decoration: none;
-            font-size: 0.75rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color 0.3s;
+            color: rgba(154, 170, 158, 0.4);
+            transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: #58b08d;
+            color: #6ee898;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             nav {
-                padding: 0 20px;
+                padding: 0 1.25rem;
             }
 
             .nav-links {
                 display: none;
+            }
+
+            main {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
             }
 
             .page-header h1 {
@@ -315,13 +250,9 @@
                 grid-template-columns: 1fr;
             }
 
-            .logo-showcase {
-                justify-content: center;
-            }
-
             footer {
                 flex-direction: column;
-                gap: 12px;
+                gap: 1rem;
                 text-align: center;
             }
         }
@@ -329,28 +260,20 @@
 </head>
 <body>
     <nav>
-        <a href="index.html" class="nav-brand">
-            <span class="nav-name">Ticori</span>
-        </a>
-        <div class="nav-links">
-            <a href="index.html#games">Games</a>
-            <a href="press-kit.html" class="active">Press</a>
-        </div>
+        <a href="index.html" class="nav-brand">TICORI</a>
+        <ul class="nav-links">
+            <li><a href="index.html#games">Games</a></li>
+            <li><a href="press-kit.html" class="active">Press</a></li>
+        </ul>
         <div class="nav-social">
-            <a href="https://x.com/ticori_llc" target="_blank" aria-label="X (Twitter)">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
+            <a href="https://x.com/ticori_llc" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a href="https://discord.gg/7MvX9VxjQc" target="_blank" aria-label="Discord">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515a.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0a12.64 12.64 0 0 0-.617-1.25a.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057a19.9 19.9 0 0 0 5.993 3.03a.078.078 0 0 0 .084-.028a14.09 14.09 0 0 0 1.226-1.994a.076.076 0 0 0-.041-.106a13.107 13.107 0 0 1-1.872-.892a.077.077 0 0 1-.008-.128a10.2 10.2 0 0 0 .372-.292a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127a12.299 12.299 0 0 1-1.873.892a.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028a19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.956-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419c0-1.333.955-2.419 2.157-2.419c1.21 0 2.176 1.096 2.157 2.42c0 1.333-.946 2.418-2.157 2.418z"/>
-                </svg>
+            <a href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
             </a>
-            <a href="https://youtube.com/@ticori-llc" target="_blank" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
+            <a href="https://youtube.com/@ticori-llc" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
             </a>
         </div>
     </nav>
@@ -391,38 +314,37 @@
             </div>
         </div>
 
-
         <div class="section">
             <div class="section-label">Brand Colors</div>
             <div class="color-palette">
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #58b08d;"></div>
+                    <div class="color-dot" style="background: #50c878;"></div>
                     <div class="color-info">
                         <div class="color-name">Primary</div>
-                        <div class="color-hex">#58b08d</div>
+                        <div class="color-hex">#50c878</div>
                     </div>
                 </div>
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #6dd5b4;"></div>
+                    <div class="color-dot" style="background: #6ee898;"></div>
                     <div class="color-info">
                         <div class="color-name">Accent</div>
-                        <div class="color-hex">#6dd5b4</div>
+                        <div class="color-hex">#6ee898</div>
                     </div>
                 </div>
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #090b0a;"></div>
+                    <div class="color-dot" style="background: #080f0b;"></div>
                     <div class="color-info">
                         <div class="color-name">Background</div>
-                        <div class="color-hex">#090b0a</div>
+                        <div class="color-hex">#080f0b</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <span class="footer-copy">&copy; 2026 TICORI LLC</span>
+            <span>&copy; 2026 TICORI LLC</span>
             <div class="footer-links">
-                <a href="mailto:info@ticori.gg">info@ticori.gg</a>
+                <a href="mailto:info@ticori.gg">Contact</a>
             </div>
         </footer>
     </main>
