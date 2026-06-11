@@ -4,7 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Press Kit - TICORI</title>
+    <meta name="description" content="Press kit for TICORI LLC, an independent game studio. Factsheet, brand assets, and contact.">
+    <meta property="og:title" content="Press Kit - TICORI">
+    <meta property="og:description" content="Press kit for TICORI LLC, an independent game studio. Factsheet, brand assets, and contact.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ticori.gg/press-kit.html">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23141210'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='600' fill='%238aa86f' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg: #141210;
+            --bg-raise: #1c1916;
+            --line: rgba(232, 226, 212, 0.12);
+            --ink: #ede7d9;
+            --body: #b5ad9b;
+            --muted: #7d7768;
+            --accent: #8aa86f;
+            --accent-bright: #a4c186;
+            --nav-bg: rgba(20, 18, 16, 0.85);
+        }
+
         *, *::before, *::after {
             margin: 0;
             padding: 0;
@@ -16,20 +38,46 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #080f0b;
-            color: #9aaa9e;
+            font-family: 'Work Sans', system-ui, sans-serif;
+            background:
+                radial-gradient(1200px 800px at 18% -5%, rgba(138, 168, 111, 0.08), transparent 60%),
+                var(--bg);
+            color: var(--body);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
         h1, h2, h3 {
-            color: #e0ece5;
+            font-family: 'Fraunces', Georgia, serif;
+            color: var(--ink);
         }
 
         a {
             text-decoration: none;
             color: inherit;
+        }
+
+        .mono {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
         /* Nav */
@@ -43,18 +91,19 @@
             align-items: center;
             justify-content: space-between;
             padding: 0 2rem;
-            height: 60px;
-            background: rgba(8, 15, 11, 0.9);
+            height: 64px;
+            background: var(--nav-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(80, 200, 120, 0.08);
+            border-bottom: 1px solid var(--line);
         }
 
         .nav-brand {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #e0ece5;
-            letter-spacing: 0.08em;
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: 0.22em;
         }
 
         .nav-links {
@@ -62,23 +111,26 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 2rem;
+            gap: 2.25rem;
             list-style: none;
         }
 
         .nav-links a {
-            color: #708a7a;
-            font-size: 0.9rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
             font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--muted);
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #e0ece5;
+            color: var(--ink);
         }
 
         .nav-links a.active {
-            color: #50c878;
+            color: var(--accent);
         }
 
         .nav-social {
@@ -88,38 +140,36 @@
         }
 
         .nav-social a {
-            color: #708a7a;
+            color: var(--muted);
             display: flex;
             align-items: center;
             transition: color 0.2s;
         }
 
         .nav-social a:hover {
-            color: #e0ece5;
+            color: var(--ink);
         }
 
         /* Main content */
         main {
-            padding-top: 60px;
             max-width: 860px;
             margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding: 64px 2rem 0;
         }
 
         .page-header {
-            padding: 60px 0 20px;
+            padding: 70px 0 20px;
         }
 
         .page-header h1 {
             font-size: 2.8rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
+            font-weight: 600;
+            letter-spacing: -0.015em;
             margin-bottom: 10px;
         }
 
         .page-header p {
-            color: #708a7a;
+            color: var(--muted);
             font-size: 1rem;
         }
 
@@ -128,14 +178,10 @@
         }
 
         .section-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: #50c878;
+            color: var(--accent);
             margin-bottom: 24px;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(80, 200, 120, 0.15);
+            border-bottom: 1px solid var(--line);
         }
 
         .fact-grid {
@@ -145,26 +191,34 @@
         }
 
         .fact-label {
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.12em;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
             text-transform: uppercase;
-            color: #708a7a;
+            color: var(--muted);
             margin-bottom: 6px;
         }
 
         .fact-value {
             font-size: 1rem;
-            color: #e0ece5;
+            color: var(--ink);
         }
 
         .fact-value a {
-            color: #50c878;
+            color: var(--accent);
             transition: color 0.2s;
         }
 
         .fact-value a:hover {
-            color: #6ee898;
+            color: var(--accent-bright);
+        }
+
+        .about-blurb {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            max-width: 70ch;
+            text-wrap: pretty;
         }
 
         .color-palette {
@@ -183,7 +237,7 @@
             width: 32px;
             height: 32px;
             border-radius: 8px;
-            border: 1px solid rgba(80, 200, 120, 0.1);
+            border: 1px solid var(--line);
         }
 
         .color-info {
@@ -191,40 +245,39 @@
         }
 
         .color-name {
-            font-weight: 600;
-            color: #e0ece5;
+            font-weight: 500;
+            color: var(--ink);
         }
 
         .color-hex {
             font-size: 0.75rem;
-            color: #708a7a;
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            color: var(--muted);
+            font-family: 'IBM Plex Mono', monospace;
         }
 
         /* Footer */
         footer {
-            border-top: 1px solid rgba(80, 200, 120, 0.08);
-            padding: 2rem 0;
+            border-top: 1px solid var(--line);
+            padding: 2.5rem 0;
             margin-top: 80px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            font-size: 0.8rem;
-            color: rgba(154, 170, 158, 0.4);
+            color: var(--muted);
         }
 
         .footer-links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
         .footer-links a {
-            color: rgba(154, 170, 158, 0.4);
+            color: var(--muted);
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: #6ee898;
+            color: var(--accent);
         }
 
         /* Responsive */
@@ -238,8 +291,8 @@
             }
 
             main {
-                padding-left: 1.25rem;
-                padding-right: 1.25rem;
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
             }
 
             .page-header h1 {
@@ -285,7 +338,7 @@
         </div>
 
         <div class="section">
-            <div class="section-label">Factsheet</div>
+            <div class="section-label mono">Factsheet</div>
             <div class="fact-grid">
                 <div>
                     <div class="fact-label">Studio</div>
@@ -315,35 +368,47 @@
         </div>
 
         <div class="section">
-            <div class="section-label">Brand Colors</div>
+            <div class="section-label mono">About</div>
+            <p class="about-blurb">TICORI is a small independent studio making online games.<br>No pay-to-win and no loot box casinos.<br>Our first title is currently in development.</p>
+        </div>
+
+        <div class="section">
+            <div class="section-label mono">Brand Colors</div>
             <div class="color-palette">
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #50c878;"></div>
+                    <div class="color-dot" style="background: #8aa86f;"></div>
                     <div class="color-info">
-                        <div class="color-name">Primary</div>
-                        <div class="color-hex">#50c878</div>
+                        <div class="color-name">Moss (Primary)</div>
+                        <div class="color-hex">#8aa86f</div>
                     </div>
                 </div>
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #6ee898;"></div>
+                    <div class="color-dot" style="background: #a4c186;"></div>
                     <div class="color-info">
-                        <div class="color-name">Accent</div>
-                        <div class="color-hex">#6ee898</div>
+                        <div class="color-name">Moss Bright (Accent)</div>
+                        <div class="color-hex">#a4c186</div>
                     </div>
                 </div>
                 <div class="color-chip">
-                    <div class="color-dot" style="background: #080f0b;"></div>
+                    <div class="color-dot" style="background: #ede7d9;"></div>
                     <div class="color-info">
-                        <div class="color-name">Background</div>
-                        <div class="color-hex">#080f0b</div>
+                        <div class="color-name">Bone (Text)</div>
+                        <div class="color-hex">#ede7d9</div>
+                    </div>
+                </div>
+                <div class="color-chip">
+                    <div class="color-dot" style="background: #141210;"></div>
+                    <div class="color-info">
+                        <div class="color-name">Char (Background)</div>
+                        <div class="color-hex">#141210</div>
                     </div>
                 </div>
             </div>
         </div>
 
         <footer>
-            <span>&copy; 2026 TICORI LLC</span>
-            <div class="footer-links">
+            <span class="mono">&copy; 2026 TICORI LLC</span>
+            <div class="footer-links mono">
                 <a href="mailto:info@ticori.gg">Contact</a>
             </div>
         </footer>

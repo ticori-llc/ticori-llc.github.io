@@ -24,7 +24,8 @@ No build or test commands. Open HTML files directly in a browser to preview. Dep
 
 ## Style Conventions
 
-- Brand color: `#58b08d` (green), hover accent: `#6dd5b4`
-- Dark theme with glassmorphism (backdrop-filter blur, semi-transparent backgrounds)
-- Shared visual style is duplicated across HTML files (no shared CSS file)
-- Responsive with a 768px mobile breakpoint
+- Palette ("Folklore Dark"): background `#141210` (char), raised surfaces `#1c1916`, headings/text `#ede7d9` (bone), body text `#b5ad9b`, muted `#7d7768`, accent `#8aa86f` (moss), accent hover `#a4c186`
+- Typography: Fraunces (display serif, headings/wordmark), Work Sans (body), IBM Plex Mono (uppercase micro-labels, `.mono` class)
+- Dark theme with grain texture overlay (SVG feTurbulence data URI on `body::after`) and a moss-tinted radial glow in the body background
+- CSS custom properties in `:root` define the palette; shared visual style is duplicated across HTML files (no shared CSS file)
+- Responsive with a 768px mobile breakpoint; hero uses staggered load animation with `prefers-reduced-motion` fallback
