@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TICORI - Independent Game Studio</title>
-    <meta name="description" content="TICORI is a small independent studio making online games. First title in development.">
-    <meta property="og:title" content="TICORI - Independent Game Studio">
-    <meta property="og:description" content="TICORI is a small independent studio making online games. First title in development.">
+    <title>Ticori - Independent Game Studio</title>
+    <meta name="description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, and always played fair.">
+    <meta property="og:title" content="Ticori - Independent Game Studio">
+    <meta property="og:description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, and always played fair.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.ticori.gg/">
     <meta name="twitter:card" content="summary">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23141210'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='36' font-weight='600' fill='%238aa86f' text-anchor='middle'%3ET%3C/text%3E%3C/svg%3E">
+    <meta name="theme-color" content="#231A15">
+    <link rel="icon" href="brand/favicon.ico" sizes="any">
+    <link rel="icon" href="brand/favicon_32.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #141210;
-            --bg-raise: #1c1916;
-            --line: rgba(232, 226, 212, 0.12);
-            --ink: #ede7d9;
-            --body: #b5ad9b;
-            --muted: #7d7768;
-            --accent: #8aa86f;
-            --accent-bright: #a4c186;
-            --nav-bg: rgba(20, 18, 16, 0.85);
+            --ink: #231A15;
+            --cream: #FFF4E6;
+            --tomato: #FF5A36;
+            --text-on-ink: #E3D8CB;
+            --muted-on-ink: #A89C90;
+            --text-on-cream: #4A3C33;
+            --peek: 220px;
+            --table: calc(var(--peek) * 26 / 512);
         }
 
         *, *::before, *::after {
@@ -38,52 +40,46 @@
         }
 
         body {
-            font-family: 'Work Sans', system-ui, sans-serif;
-            background:
-                radial-gradient(1200px 800px at 18% -5%, rgba(138, 168, 111, 0.08), transparent 60%),
-                var(--bg);
-            color: var(--body);
+            font-family: 'Nunito', system-ui, sans-serif;
+            background: var(--ink);
+            color: var(--text-on-ink);
+            font-size: 1.0625rem;
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        body::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            z-index: 999;
-            pointer-events: none;
-            opacity: 0.05;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        }
-
         ::selection {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Fraunces', Georgia, serif;
+            background: var(--tomato);
             color: var(--ink);
         }
 
+        h1, h2, h3 {
+            font-family: 'Fredoka', 'Nunito', sans-serif;
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--cream);
+        }
+
         a {
-            text-decoration: none;
             color: inherit;
         }
 
-        .mono {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.7rem;
-            font-weight: 500;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
+        a:focus-visible {
+            outline: 2px solid var(--tomato);
+            outline-offset: 3px;
+            border-radius: 2px;
         }
 
         .wrap {
-            max-width: 1060px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 0 2rem;
+        }
+
+        /* The tabletop: the page's one divider, the same tomato bar the jackalope rests on */
+        .tabletop {
+            height: var(--table);
+            background: var(--tomato);
         }
 
         /* Nav */
@@ -98,62 +94,56 @@
             justify-content: space-between;
             padding: 0 2rem;
             height: 64px;
-            background: var(--nav-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--line);
+            background: rgba(35, 26, 21, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: opacity 0.6s ease;
         }
 
         .nav-brand {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: 0.22em;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            opacity: 0;
+            transition: opacity 0.35s;
+            pointer-events: none;
+        }
+
+        body.past-hero .nav-brand {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-brand .brand-mark {
+            height: 38px;
+            width: 38px;
+        }
+
+        .nav-brand .brand-word {
+            height: 20px;
+            width: auto;
         }
 
         .nav-links {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             display: flex;
-            gap: 2.25rem;
+            align-items: center;
+            gap: 1.75rem;
             list-style: none;
+            font-weight: 700;
         }
 
         .nav-links a {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.72rem;
-            font-weight: 500;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--muted);
+            color: var(--muted-on-ink);
+            text-decoration: none;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: var(--ink);
+            color: var(--cream);
         }
 
-        .nav-links a.active {
-            color: var(--accent);
-        }
-
-        .nav-social {
+        .nav-links .icon {
             display: flex;
-            gap: 1.25rem;
-            align-items: center;
-        }
-
-        .nav-social a {
-            color: var(--muted);
-            display: flex;
-            align-items: center;
-            transition: color 0.2s;
-        }
-
-        .nav-social a:hover {
-            color: var(--ink);
         }
 
         /* Hero */
@@ -161,114 +151,118 @@
             min-height: 88vh;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding-top: 64px;
+            text-align: center;
+            padding-top: 96px;
+            padding-bottom: 5rem;
         }
 
-        @keyframes rise {
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-            to {
-                opacity: 1;
-                transform: none;
-            }
+        /* The splash: three sprites sharing one 600x520 frame, cropped to x 130-470, y 36-418 */
+        .splash {
+            position: relative;
+            width: min(380px, 76vw);
+            aspect-ratio: 340 / 382;
+            overflow: hidden;
+            margin-bottom: 3rem;
         }
 
-        .hero > * {
-            animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+        .splash-frame {
+            position: absolute;
+            left: -38.235%;
+            top: -9.424%;
+            width: 176.47%;
+            aspect-ratio: 600 / 520;
         }
 
-        .hero > *:nth-child(1) { animation-delay: 0.05s; }
-        .hero > *:nth-child(2) { animation-delay: 0.15s; }
-        .hero > *:nth-child(3) { animation-delay: 0.3s; }
-        .hero > *:nth-child(4) { animation-delay: 0.45s; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .hero > * {
-                animation: none;
-            }
+        .splash-frame img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        .kicker {
-            color: var(--accent);
-            margin-bottom: 1.75rem;
+        .splash-clip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 45.00%;
+            overflow: hidden;
         }
 
-        .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.2rem);
-            font-weight: 600;
-            line-height: 1.04;
-            letter-spacing: -0.015em;
-            margin-bottom: 1.75rem;
-            max-width: 17ch;
+        body.intro-playing .splash-head {
+            transform: translateY(40.19%);
         }
 
-        .hero h1 em {
-            font-style: italic;
-            color: var(--accent-bright);
+        body.intro-playing .splash-word {
+            opacity: 0;
         }
 
-        .hero .lede {
-            font-size: 1.1rem;
-            max-width: 60ch;
+        .studio-line {
+            font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+            font-weight: 500;
+            line-height: 1.3;
+            max-width: 26ch;
             text-wrap: balance;
-            margin-bottom: 2.5rem;
         }
 
-        .hero-link {
-            color: var(--accent);
-            transition: color 0.2s;
+        /* Intro: everything but the splash waits for it to finish */
+        .after-intro {
+            transition: opacity 0.7s ease;
         }
 
-        .hero-link:hover {
-            color: var(--accent-bright);
+        body.intro-playing .after-intro,
+        body.intro-playing nav {
+            opacity: 0;
         }
 
-        /* Sections */
-        section {
-            padding: 5rem 0;
+        /* Games: a cream band under the tabletop */
+        .games {
+            background: var(--cream);
+            color: var(--text-on-cream);
+            padding: 6rem 0;
         }
 
-        .section-label {
-            color: var(--accent);
-            padding-bottom: 0.9rem;
-            margin-bottom: 2.5rem;
-            border-bottom: 1px solid var(--line);
+        .game {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+            gap: 4rem;
+            align-items: center;
         }
 
-        /* Game card */
-        .game-card {
-            border: 1px solid var(--line);
-            background: var(--bg-raise);
-            border-radius: 6px;
-            padding: 2.25rem;
-            max-width: 760px;
-        }
-
-        .game-tag {
-            color: var(--accent);
+        .game h2 {
+            color: var(--ink);
+            font-size: clamp(2rem, 4vw, 2.75rem);
             margin-bottom: 1rem;
         }
 
-        .game-card h3 {
-            font-size: 1.7rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
+        .game p {
+            font-size: 1.2rem;
+            max-width: 30em;
+            margin-bottom: 1.25rem;
         }
 
-        .game-card > p {
-            max-width: 56ch;
-            margin-bottom: 1.75rem;
+        .game .follow {
+            font-size: 1.1rem;
+            color: var(--ink);
+            font-weight: 800;
+            text-decoration-color: var(--tomato);
+            text-decoration-thickness: 3px;
+            text-underline-offset: 5px;
+        }
+
+        .game .follow:hover {
+            color: var(--tomato);
         }
 
         .steam-frame {
-            max-width: 646px;
-            border: 1px solid var(--line);
-            border-radius: 4px;
+            border-radius: 6px;
             overflow: hidden;
             background: #1b2838;
+            box-shadow: 0 0 0 1px rgba(35, 26, 21, 0.15);
         }
 
         .steam-frame iframe {
@@ -278,151 +272,320 @@
             border: none;
         }
 
-        .steam-note {
-            color: var(--muted);
-            margin-top: 0.9rem;
+        /* Promise */
+        .promise {
+            padding: 6.5rem 0 7rem;
         }
 
-        /* About */
-        .about-copy {
-            font-family: 'Fraunces', Georgia, serif;
-            font-size: 1.45rem;
-            font-weight: 400;
-            line-height: 1.6;
-            color: var(--ink);
-            max-width: 32em;
+        .promise h2 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .promise .lead {
+            font-size: 1.25rem;
+            color: var(--cream);
+            max-width: 36em;
+            margin-bottom: 3.5rem;
             text-wrap: pretty;
         }
 
-        .about-copy em {
-            color: var(--accent-bright);
+        .promise ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2.5rem;
         }
 
-        /* Footer */
+        .promise h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .promise li p {
+            max-width: 26em;
+        }
+
+        /* Footer: the jackalope rests its paws on the last tabletop */
+        .peek-row {
+            display: grid;
+            grid-template-columns: 1fr var(--peek) 0.35fr;
+            align-items: end;
+        }
+
+        .peek-row .tabletop:first-child {
+            margin-right: calc(var(--peek) * -23 / 512);
+        }
+
+        .peek-row .tabletop:last-child {
+            margin-left: calc(var(--peek) * -25 / 512);
+        }
+
+        .peek {
+            position: relative;
+            z-index: 1;
+            width: var(--peek);
+            height: auto;
+            display: block;
+            margin-top: calc(var(--peek) * -95 / 512);
+            margin-bottom: calc(var(--peek) * -98 / 512);
+        }
+
         footer {
-            border-top: 1px solid var(--line);
-            margin-top: 3rem;
+            padding: 2.5rem 0 3rem;
+            color: var(--muted-on-ink);
         }
 
         .footer-inner {
-            padding: 2.5rem 0;
             display: flex;
-            align-items: center;
+            align-items: baseline;
             justify-content: space-between;
-            color: var(--muted);
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-inner .sign-off {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.35rem;
+            color: var(--cream);
         }
 
         .footer-links {
             display: flex;
-            gap: 1.75rem;
+            gap: 1.5rem;
         }
 
         .footer-links a {
-            color: var(--muted);
+            text-decoration: none;
             transition: color 0.2s;
         }
 
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--cream);
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 860px) {
+            .game {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .game .game-text {
+                order: -1;
+            }
+
+            .promise ul {
+                grid-template-columns: 1fr;
+                gap: 1.75rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --peek: 150px;
+            }
+
             nav {
                 padding: 0 1.25rem;
             }
 
+            .nav-brand .brand-word {
+                display: none;
+            }
+
             .nav-links {
+                gap: 1.1rem;
+            }
+
+            .nav-links .extra {
                 display: none;
             }
 
             .wrap {
-                padding: 0 1.5rem;
+                padding: 0 1.25rem;
             }
 
-            .hero {
-                min-height: 78vh;
+            .games {
+                padding: 4rem 0;
             }
 
-            section {
-                padding: 3.5rem 0;
-            }
-
-            .game-card {
-                padding: 1.5rem;
-            }
-
-            .about-copy {
-                font-size: 1.2rem;
+            .promise {
+                padding: 4.5rem 0 5rem;
             }
 
             .footer-inner {
                 flex-direction: column;
-                gap: 1rem;
-                text-align: center;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
+    <script>
+        (function () {
+            var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            var seen = false;
+            try { seen = sessionStorage.getItem('ticori-intro') === 'seen'; } catch (e) {}
+            if (!reduced && !seen) document.body.classList.add('intro-playing');
+        })();
+    </script>
 
     <nav>
-        <a href="index.html" class="nav-brand">TICORI</a>
+        <a href="index.html" class="nav-brand" aria-label="Ticori home">
+            <img class="brand-mark" src="brand/ticori_mark_cream_128.png" alt="">
+            <img class="brand-word" src="brand/ticori_wordmark_cream.png" alt="">
+        </a>
         <ul class="nav-links">
-            <li><a href="#games" class="active">Games</a></li>
+            <li><a href="#games">Games</a></li>
+            <li><a href="#promise">Promise</a></li>
             <li><a href="press-kit.html">Press</a></li>
+            <li><a class="icon" href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+            </a></li>
+            <li class="extra"><a class="icon" href="https://x.com/ticori_llc" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a></li>
+            <li class="extra"><a class="icon" href="https://youtube.com/@ticori-llc" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a></li>
         </ul>
-        <div class="nav-social">
-            <a href="https://x.com/ticori_llc" target="_blank" rel="noopener noreferrer" aria-label="X">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-            <a href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer" aria-label="Discord">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
-            </a>
-            <a href="https://youtube.com/@ticori-llc" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-        </div>
     </nav>
 
-    <div class="wrap">
-
-        <header class="hero">
-            <p class="kicker mono">Independent game studio &middot; Est. 2026</p>
-            <h1>We make games. The first one is <em>still a secret.</em></h1>
-            <p class="lede">A small independent studio that likes making online games.</p>
-            <a href="#games" class="hero-link mono">See what's coming &darr;</a>
-        </header>
-
-        <section id="games">
-            <h2 class="section-label mono">Games</h2>
-            <article class="game-card">
-                <p class="game-tag mono">Game 01 &middot; Unannounced</p>
-                <h3>Our first title</h3>
-                <p>In development now. The Steam page unlocks when we're ready to show it. Wishlist the moment it does.</p>
-                <div class="steam-frame">
-                    <iframe src="https://store.steampowered.com/widget/4514010/" loading="lazy" title="Steam store widget"></iframe>
-                </div>
-                <p class="steam-note mono">Steam page coming soon</p>
-            </article>
-        </section>
-
-        <section id="about">
-            <h2 class="section-label mono">About</h2>
-            <p class="about-copy">TICORI is a small independent studio making online games.<br>No pay-to-win and no loot box casinos.<br>Our first title is currently in development.</p>
-        </section>
-
-        <footer>
-            <div class="footer-inner">
-                <span class="mono">&copy; 2026 TICORI LLC</span>
-                <div class="footer-links mono">
-                    <a href="press-kit.html">Press</a>
-                    <a href="mailto:info@ticori.gg">Contact</a>
-                </div>
+    <header class="hero wrap" id="hero">
+        <div class="splash" role="img" aria-label="ticori: a jackalope resting its paws on a tomato table">
+            <div class="splash-frame">
+                <div class="splash-clip"><img class="splash-head" src="brand/splash_head_cream.png" alt=""></div>
+                <img src="brand/splash_table_cream.png" alt="">
+                <img class="splash-word" src="brand/splash_wordmark_cream.png" alt="">
             </div>
-        </footer>
+        </div>
+        <h1 class="studio-line after-intro">A small independent studio making the online games we always wanted to play with our friends.</h1>
+    </header>
 
+    <div class="tabletop after-intro"></div>
+
+    <section class="games after-intro" id="games">
+        <div class="wrap game">
+            <div class="steam-frame">
+                <iframe src="https://store.steampowered.com/widget/4514010/" loading="lazy" title="Our first game on Steam"></iframe>
+            </div>
+            <div class="game-text">
+                <h2>Our first game</h2>
+                <p>Still a secret, and online, and built for playing with friends. The Steam page goes up when we're ready to show it.</p>
+                <a class="follow" href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer">Hear about it first on Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="promise after-intro" id="promise">
+        <div class="wrap">
+            <h2>Fair play, always.</h2>
+            <p class="lead">We make the games we always wanted to play with our friends: new ways to play together, or familiar genres taken somewhere new. And we keep them fair.</p>
+            <ul>
+                <li>
+                    <h3>Never pay-to-win</h3>
+                    <p>Nothing bought with real money makes you stronger in the game.</p>
+                </li>
+                <li>
+                    <h3>Never gambling</h3>
+                    <p>No loot boxes, no random paid rolls, no casino mechanics.</p>
+                </li>
+                <li>
+                    <h3>Never paywalled</h3>
+                    <p>No content locked behind paywalls, and no game cut up to sell back as DLC. New content ships as updates to the game you already own.</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="peek-row after-intro" aria-hidden="true">
+        <div class="tabletop"></div>
+        <img class="peek" src="brand/ticori_mark_cream_512.png" alt="">
+        <div class="tabletop"></div>
     </div>
+
+    <footer class="after-intro">
+        <div class="wrap footer-inner">
+            <span class="sign-off">Online games for friends. Played fair.</span>
+            <div class="footer-links">
+                <a href="press-kit.html">Press kit</a>
+                <a href="mailto:info@ticori.gg">info@ticori.gg</a>
+            </div>
+            <span>&copy; 2026 TICORI LLC</span>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            // Timing and travel from the brand's splash_layout.txt
+            var HOLD = 0.62, RISE = 0.45, PAUSE = 0.25, FADE = 0.36;
+            var TRAVEL = 40.19, OVERSHOOT = 1.2;
+
+            var body = document.body;
+            var head = document.querySelector('.splash-head');
+            var word = document.querySelector('.splash-word');
+
+            function easeOutBack(x) {
+                var u = x - 1;
+                return 1 + (OVERSHOOT + 1) * u * u * u + OVERSHOOT * u * u;
+            }
+
+            function placeHead(p) { head.style.transform = 'translateY(' + (TRAVEL * (1 - p)) + '%)'; }
+            function showWord(p) { word.style.opacity = p; }
+
+            var target = location.hash && document.getElementById(location.hash.slice(1));
+            var holdTop = function () { window.scrollTo(0, 0); };
+
+            function finish() {
+                head.style.transform = '';
+                word.style.opacity = '';
+                var wasPlaying = body.classList.contains('intro-playing');
+                body.classList.remove('intro-playing');
+                try { sessionStorage.setItem('ticori-intro', 'seen'); } catch (e) {}
+                window.removeEventListener('load', holdTop);
+                if (wasPlaying && target) setTimeout(function () { target.scrollIntoView({ behavior: 'smooth' }); }, 350);
+            }
+
+            var timeline = [
+                [HOLD, function () {}],
+                [RISE, function (p) { placeHead(easeOutBack(p)); }],
+                [PAUSE, function () {}],
+                [FADE, function (p) { showWord(p); }]
+            ];
+
+            if (!body.classList.contains('intro-playing') || document.visibilityState === 'hidden') {
+                finish();
+            } else {
+                if (target) {
+                    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                    holdTop();
+                    window.addEventListener('load', holdTop);
+                }
+                var start = null, done = false;
+                var skip = function () { if (!done) { done = true; finish(); } };
+                window.addEventListener('keydown', skip, { once: true });
+                window.addEventListener('pointerdown', skip, { once: true });
+                setTimeout(skip, (HOLD + RISE + PAUSE + FADE) * 1000 + 400);
+                requestAnimationFrame(function frame(now) {
+                    if (done) return;
+                    if (start === null) start = now;
+                    var elapsed = (now - start) / 1000;
+                    for (var i = 0; i < timeline.length; i++) {
+                        var step = timeline[i];
+                        if (elapsed < step[0]) { step[1](elapsed / step[0]); return requestAnimationFrame(frame); }
+                        step[1](1);
+                        elapsed -= step[0];
+                    }
+                    skip();
+                });
+            }
+
+            var hero = document.getElementById('hero');
+            new IntersectionObserver(function (entries) {
+                body.classList.toggle('past-hero', !entries[0].isIntersecting);
+            }, { rootMargin: '-64px 0px 0px 0px', threshold: 0.15 }).observe(hero.querySelector('.splash'));
+        })();
+    </script>
 
 </body>
 </html>
