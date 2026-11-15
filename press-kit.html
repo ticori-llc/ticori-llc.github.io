@@ -31,8 +31,9 @@
             --muted-on-ink: #A89C90;
             --text-on-cream: #4A3C33;
             --muted-on-cream: #8A7A6E;
-            --peek: 220px;
-            --table: calc(var(--peek) * 26 / 512);
+            --peek: 152px;
+            --peek-height: calc(var(--peek) * 465 / 512);
+            --table: calc(var(--peek-height) * 0.08);
         }
 
         *, *::before, *::after {
@@ -320,29 +321,28 @@
             font-size: 0.95rem;
         }
 
-        /* Footer: the jackalope rests its paws on the last tabletop */
+        /* Footer: the jackalope (no table of its own) rests its paws on one full-width tabletop;
+           the bar sits at the sprite's tabletop rows, 0.9106 to 0.9906 of its height (brand peek_layout.txt) */
         .peek-row {
-            display: grid;
-            grid-template-columns: 1fr var(--peek) 0.35fr;
-            align-items: end;
+            position: relative;
+            height: calc(var(--peek-height) * 0.9906);
         }
 
-        .peek-row .tabletop:first-child {
-            margin-right: calc(var(--peek) * -23 / 512);
-        }
-
-        .peek-row .tabletop:last-child {
-            margin-left: calc(var(--peek) * -25 / 512);
+        .peek-row .tabletop {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
         }
 
         .peek {
-            position: relative;
+            position: absolute;
             z-index: 1;
+            top: 0;
+            left: calc((100% - var(--peek)) / 1.35);
             width: var(--peek);
             height: auto;
             display: block;
-            margin-top: calc(var(--peek) * -95 / 512);
-            margin-bottom: calc(var(--peek) * -98 / 512);
         }
 
         footer {
@@ -403,7 +403,7 @@
 
         @media (max-width: 600px) {
             :root {
-                --peek: 150px;
+                --peek: 104px;
             }
 
             nav {
@@ -551,8 +551,7 @@
 
     <div class="peek-row" aria-hidden="true">
         <div class="tabletop"></div>
-        <img class="peek" src="brand/ticori_mark_cream_512.png" alt="">
-        <div class="tabletop"></div>
+        <img class="peek" src="brand/peek_cream_on_ink.png" alt="">
     </div>
 
     <footer>
