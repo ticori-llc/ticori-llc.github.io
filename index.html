@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ticori - Independent Game Studio</title>
-    <meta name="description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, and always played fair.">
+    <meta name="description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, or familiar genres taken somewhere new.">
     <meta property="og:title" content="Ticori - Independent Game Studio">
-    <meta property="og:description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, and always played fair.">
+    <meta property="og:description" content="Ticori is a small independent studio making the online games we always wanted to play with our friends: new ways to play together, or familiar genres taken somewhere new.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.ticori.gg/">
     <meta property="og:image" content="https://www.ticori.gg/brand/ticori_share.png">
@@ -225,11 +225,45 @@
             opacity: 0;
         }
 
-        /* Games: a cream band under the tabletop */
-        .games {
+        /* Games: one band per game under the tabletop, cream and ink in turn */
+        .game-band {
             background: var(--cream);
             color: var(--text-on-cream);
             padding: 6rem 0;
+        }
+
+        .game-band.on-ink {
+            background: transparent;
+            color: var(--text-on-ink);
+        }
+
+        .game-band.on-ink .game h2,
+        .game-band.on-ink .game .follow {
+            color: var(--cream);
+        }
+
+        .game-band.on-ink .game .follow:hover {
+            color: var(--tomato);
+        }
+
+        .game-band.on-ink .steam-frame {
+            box-shadow: 0 0 0 1px rgba(255, 244, 230, 0.12);
+        }
+
+        /* Each game slides in as it scrolls into view (only with JS and motion allowed) */
+        body.reveal-on .game > * {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        body.reveal-on .game > .game-text {
+            transition-delay: 0.12s;
+        }
+
+        body.reveal-on .game.shown > * {
+            opacity: 1;
+            transform: none;
         }
 
         .game {
@@ -237,6 +271,15 @@
             grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
             gap: 4rem;
             align-items: center;
+        }
+
+        /* Every other game swaps sides: text left, widget right */
+        .game.flip {
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+        }
+
+        .game.flip .steam-frame {
+            order: 2;
         }
 
         .game h2 {
@@ -370,13 +413,18 @@
         }
 
         @media (max-width: 860px) {
-            .game {
+            .game,
+            .game.flip {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
             .game .game-text {
                 order: -1;
+            }
+
+            .game.flip .steam-frame {
+                order: 0;
             }
 
             .promise ul {
@@ -410,7 +458,7 @@
                 padding: 0 1.25rem;
             }
 
-            .games {
+            .game-band {
                 padding: 4rem 0;
             }
 
@@ -432,6 +480,7 @@
             var seen = false;
             try { seen = sessionStorage.getItem('ticori-intro') === 'seen'; } catch (e) {}
             if (!reduced && !seen) document.body.classList.add('intro-playing');
+            if (!reduced && 'IntersectionObserver' in window) document.body.classList.add('reveal-on');
         })();
     </script>
 
@@ -469,34 +518,59 @@
 
     <div class="tabletop after-intro"></div>
 
-    <section class="games after-intro" id="games">
+    <div class="games after-intro" id="games">
+    <section class="game-band" aria-label="Unannounced game">
         <div class="wrap game">
             <div class="steam-frame">
-                <iframe src="https://store.steampowered.com/widget/4514010/" loading="lazy" title="Our first game on Steam"></iframe>
+                <iframe src="https://store.steampowered.com/widget/4514010/" loading="lazy" title="A Ticori game on Steam"></iframe>
             </div>
             <div class="game-text">
-                <h2>Our first game</h2>
-                <p>Still a secret, and online, and built for playing with friends. The Steam page goes up when we're ready to show it.</p>
+                <h2>Unannounced game</h2>
                 <a class="follow" href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer">Hear about it first on Discord</a>
             </div>
         </div>
     </section>
 
+    <section class="game-band on-ink" aria-label="Unannounced game">
+        <div class="wrap game flip">
+            <div class="steam-frame">
+                <iframe src="https://store.steampowered.com/widget/5690250/" loading="lazy" title="A Ticori game on Steam"></iframe>
+            </div>
+            <div class="game-text">
+                <h2>Unannounced game</h2>
+                <a class="follow" href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer">Hear about it first on Discord</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="game-band" aria-label="Unannounced game">
+        <div class="wrap game">
+            <div class="steam-frame">
+                <iframe src="https://store.steampowered.com/widget/5690910/" loading="lazy" title="A Ticori game on Steam"></iframe>
+            </div>
+            <div class="game-text">
+                <h2>Unannounced game</h2>
+                <a class="follow" href="https://discord.gg/7MvX9VxjQc" target="_blank" rel="noopener noreferrer">Hear about it first on Discord</a>
+            </div>
+        </div>
+    </section>
+    </div>
+
     <section class="promise after-intro" id="promise">
         <div class="wrap">
-            <h2>Fair play, always.</h2>
-            <p class="lead">We make the games we always wanted to play with our friends: new ways to play together, or familiar genres taken somewhere new. And we keep them fair.</p>
+            <h2>Our promise</h2>
+            <p class="lead">We make the games we always wanted to play with our friends: new ways to play together, or familiar genres taken somewhere new.</p>
             <ul>
                 <li>
-                    <h3>Never pay-to-win</h3>
+                    <h3>No pay-to-win</h3>
                     <p>Nothing bought with real money makes you stronger in the game.</p>
                 </li>
                 <li>
-                    <h3>Never gambling</h3>
+                    <h3>No gambling</h3>
                     <p>No loot boxes, no random paid rolls, no casino mechanics.</p>
                 </li>
                 <li>
-                    <h3>Never paywalled</h3>
+                    <h3>No paywalls</h3>
                     <p>No content locked behind paywalls, and no game cut up to sell back as DLC. New content ships as updates to the game you already own.</p>
                 </li>
             </ul>
@@ -510,7 +584,7 @@
 
     <footer class="after-intro">
         <div class="wrap footer-inner">
-            <span class="sign-off">Online games for friends. Played fair.</span>
+            <span class="sign-off">Online games for friends.</span>
             <div class="footer-links">
                 <a href="press-kit.html">Press kit</a>
                 <a href="mailto:info@ticori.gg">info@ticori.gg</a>
@@ -582,6 +656,17 @@
                     }
                     skip();
                 });
+            }
+
+            if (body.classList.contains('reveal-on')) {
+                var reveal = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        entry.target.classList.add('shown');
+                        reveal.unobserve(entry.target);
+                    });
+                }, { rootMargin: '0px 0px -12% 0px', threshold: 0.2 });
+                document.querySelectorAll('.game').forEach(function (game) { reveal.observe(game); });
             }
 
             var hero = document.getElementById('hero');
